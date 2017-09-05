@@ -1,5 +1,5 @@
 theme = "docuapi"
-themesdir = "../iss/themes/"
+#themesdir = "../iss/themes/"
 languageCode = "en-us"
 baseurl= "https://vasileios.github.io/"
 title = "Iss"
