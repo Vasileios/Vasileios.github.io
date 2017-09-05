@@ -59,7 +59,7 @@ title = "Ελληνικά"
 toc_footers = [ 
 "<a href='#'>Iss source at Github</a>",
 "Documentation Powered by [DocuAPI](https://github.com/bep/docuapi)",
-"Hugo Theme by [bep](https://github.com/bep)"
+"Hugo Theme by [bep](https://github.com/bep)",
 "License: CC",
 "Contact: agios[dot]mur[at]gmail.com"
 ]
@@ -74,7 +74,7 @@ title = "Iss"
 toc_footers = [ 
 "<a href='#'>Iss source at Github</a>",
 "Documentation Powered by [DocuAPI](https://github.com/bep/docuapi)",
-"Hugo Theme by [bep](https://github.com/bep)"
+"Hugo Theme by [bep](https://github.com/bep)",
 "License: CC",
 "Contact: agios[dot]mur[at]gmail.com"
 ]
