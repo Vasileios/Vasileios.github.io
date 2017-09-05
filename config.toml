@@ -1,7 +1,7 @@
 theme = "docuapi"
 themesdir = "../iss/themes/"
 languageCode = "en-us"
-baseurl= "https://vasileios.github.io/iss"
+baseurl= "https://vasileios.github.io"
 title = "Iss"
 
 # Code higlighting settings
