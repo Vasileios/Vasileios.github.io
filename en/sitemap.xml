@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://vasileios.github.io/iss-doc/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="el"
+                href="https://vasileios.github.io/iss-doc/el/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://vasileios.github.io/iss-doc/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://vasileios.github.io/iss-doc/categories/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="el"
+                href="https://vasileios.github.io/iss-doc/el/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://vasileios.github.io/iss-doc/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://vasileios.github.io/iss-doc/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="el"
+                href="https://vasileios.github.io/iss-doc/el/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://vasileios.github.io/iss-doc/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://vasileios.github.io/iss-doc/tags/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="el"
+                href="https://vasileios.github.io/iss-doc/el/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://vasileios.github.io/iss-doc/tags/"
+                />
+  </url>
+  
+</urlset>
