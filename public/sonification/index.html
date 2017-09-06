@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>BasMyr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="Sonification case study   Sonifcation of scientific  data has progressed over the last 2 decades.  is a empts to change our aural perception and train our ears and brain in a way to understand the">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BasMyr">
+<meta property="og:url" content="https://vasileios.github.io/sonification/index.html">
+<meta property="og:site_name" content="BasMyr">
+<meta property="og:description" content="Sonification case study   Sonifcation of scientific  data has progressed over the last 2 decades.  is a empts to change our aural perception and train our ears and brain in a way to understand the">
+<meta property="og:updated_time" content="2017-07-24T12:16:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BasMyr">
+<meta name="twitter:description" content="Sonification case study   Sonifcation of scientific  data has progressed over the last 2 decades.  is a empts to change our aural perception and train our ears and brain in a way to understand the">
+  
+    <link rel="alternate" href="/atom.xml" title="BasMyr" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+</head>
+
+
+
+  <body>
+
+
+  
+  
+  <div class="site-header-image">
+    <img id="originBg" width="100%" alt="Hike News" src="">
+  </div>
+
+  <div id="header-blur" class="site-header-image blur" style="position: absolute; top:0; height: 207px; min-height: 207px; min-width: 100%;">
+    <img id="blurBg" width="100%" style="top: 96%" alt="Hike News" src="">
+  </div>
+
+  <script>
+        var imgUrls = "css/images/TowerFlip02.jpg".split(",");
+        var random = Math.floor((Math.random() * imgUrls.length ));
+        if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+          document.getElementById("originBg").src=imgUrls[random];
+          document.getElementById("blurBg").src=imgUrls[random];
+        } else {
+          document.getElementById("originBg").src='/' + imgUrls[random];
+          document.getElementById("blurBg").src='/' + imgUrls[random];
+        }
+    </script>
+
+
+
+
+<header id="allheader" class="site-header" role="banner" 
+   style="width: 100%; position: absolute; top:0; background: rgba(255,255,255,.8);"  >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="BasMyr" rel="home"> BasMyr </a>
+            
+          </h1>
+          
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/workshops-events">workshops-events</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/projects">projects</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main"><article id="page-undefined"  class="article article-type-page" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+    <div class="article-meta">
+      
+	<a href="/sonification/index.html" class="article-date">
+	  <time datetime="2017-09-06T12:48:01.000Z" itemprop="datePublished">September 6, 2017</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="content">
+
+
+<div id="outline-container-orgc0b9345" class="outline-2">
+<h2 id="orgc0b9345">Sonification case study</h2>
+<div class="outline-text-2" id="text-orgc0b9345">
+<p>
+Sonifcation of scientific  data has progressed over the last 2 decades.  is a empts to change our aural perception and train our ears and brain in a way to understand the information of speci c events or phenomena and understanding of complex of scienti c data through the sound. Especially in data exploration of large data which contains much more information than this we can display visually. ”the auditory system is the best pa ern-recognition device that we know of,” says Bruce Walker, a professor of psychology and director of the Georgia Institute of Technology’s Soni cation Lab. ”If you’re looking through a data set and trying to understand what’s going on, it’s o en easier and more eficient to listen to the sound of it rather than looking at a screen or a printed version.”1 Diaz Merced, and Wanda Liz (2013) indicate in their thesis with the title ”Sound for the exploration of space physics data” that:
+large data sets have a large amount of information spanning dozens of orders of magnitude in space and time. It is also important to consider the limitations improved by nature on the human eye. In addition, even the best computer screens available are limited to a range of spatial resolution.  is limitation a ects the useful dynamic range of the display, reducing the amount of data scientists can study at any one time.(Merced, Wanda, 2013. p.7)
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgc30e602" class="outline-2">
+<h2 id="orgc30e602">Auditory dimension</h2>
+<div class="outline-text-2" id="text-orgc30e602">
+<ul class="org-ul">
+<li>What data and how to map.(Gaël Dubus* and Roberto Bresin 2013)</li>
+<li>the use of mappings and metaphors in auditory displays.(Walker, Kramer 1996 )</li>
+<li>transform inaudible data into audible information</li>
+<li>3D interactive sound</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6d618e0" class="outline-2">
+<h2 id="org6d618e0">State of the art</h2>
+<div class="outline-text-2" id="text-org6d618e0">
+<p>
+Arthur Paté Lapo Boschi, Jean-Loïc Le Carrou,Benjamin Holtzman. Categorization of seismic sources by auditory display: A blind test.International Journal of Human-Computer Studies. 2016
+Michele Geronazzo Alberto Bedin, Luca Brayda Claudio Campus Federico Avanzini. Interactive spatial soni cation for non-visual exploration of virtual maps. International Journal of Human-Computer Studies. 2016 (<a href="http://www.sciencedirect.com/science/article/pii/" target="_blank" rel="external">http://www.sciencedirect.com/science/article/pii/</a> S1071581915001287)
+Sergio Masce i, Lorenzo Picinali, Andrea Gerino, Dragan Ahmetovic, Cristian Bernareggi .Soni cation of guidance data during road crossing for people with visual impairments or blindness. International Journal of Human-Computer Studies. 2016
+Sandra Paule o,(Guest Editor), Howard Cambridge, (Guest Editor), Patrick Susini. Data soni cation and sound design in interactive systems. International Journal of Human-Computer Studies. 2016
+</p>
+</div>
+</div>
+<div id="outline-container-orgeb4f12d" class="outline-2">
+<h2 id="orgeb4f12d">Other Sonifcation examples</h2>
+<div class="outline-text-2" id="text-orgeb4f12d">
+<p>
+From: <a href="http://www.open-shelf.ca/" target="_blank" rel="external">http://www.open-shelf.ca/</a> 160201-data-sonification/
+LARAS Sonifcation Laboratory’s projects that allow network administrators to monitor network activity by listening to soni cations.
+Sonifcation has also been used for real-time monitoring of athletes’ physical performance. Various sensors collect information about athletes’ motions, posture, and force, then that information is soni ed so athlete’s can listen to their performance in real-time. For example, Stephan Barrass described a workshop he led about using soni cation for elite rowing training. Athletes using these sort of applications can listen to feedback about their performance without needing to compromising their visual focus.
+ e LHC Sound project: LHC (Large Hardon Collider) Sound so ware engineer Archer Enrich said the soni cation is “true to the data, and it’s telling you something about the data that you couldn’t know in any other way.” He also noted that when listening to the soni cation, “you feel closer to the mystery of Nature which I think a lot of scientists do when they get deep into these ma ers.”
+Brian Foo’s soni cation of income inequality in New York City provides an example ” e soni cation is entertaining simply as a piece of music and manages to powerful information about income inequality in a few short minutes.”
+Wanda Diaz Merced describes how losing her sight led her to investigate new ways of studying space physics, using sound rather than visual information.(<a href="https://www.nasa.gov/centers/goddard/" target="_blank" rel="external">https://www.nasa.gov/centers/goddard/</a> about/people/Wanda<sub>Diaz</sub>-Merced.html)
+Heavenly Sounds: Hearing Astronomical Data Can Lead to Scienti c
+Insights Converting the energetic hail of cosmic radiation into audible
+tracks has produced be er understanding of the solar wind and other
+astrophysical events—along with musical enjoyment: COSMIC SYMPHONICS:
+ e ”solar wind,” a barrage of charged particles streaming from the sun
+(red arrows; yellow represents magnetic  eld lines), is one example of an
+astrophysical phenomenon that can be translated into audible sound. Credit:
+ESA/NASA <a href="https://www.scientificamerican.com/article/" target="_blank" rel="external">https://www.scientificamerican.com/article/</a> heavenly-sounds-hearing-astronomical-data-can-lead-to-scientific-
+Listening to Solar Storms | MconneX | MichEpedia: <a href="https://www/" target="_blank" rel="external">https://www/</a>. youtube.com/watch?v=S-saaAyaW0c&amp;feature=youtu.be
+Sounds of Saturn - NASA Voyager Recording: <a href="https://www/" target="_blank" rel="external">https://www/</a>. youtube.com/watch?v=X<sub>JAvVjKeWI</sub>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2944ea9" class="outline-2">
+<h2 id="org2944ea9">Sonifcation Techniques and approaches</h2>
+<div class="outline-text-2" id="text-org2944ea9">
+<p>
+Data exploration
+the first thing we need to consider is to explore-investigate and  nally choose the data which can be used both for scienti c and artistic purposes.
+</p>
+
+<p>
+Additionally, the base of soni cation visualisation will be some combination of passive listening and active listener interaction.
+Our plan is to use iPython tools and /CSV File Readers/2 to import data, then through OSC we will send the data to other programming languages such as SuperCollider. In SuperCollider we will use ’Pa ern style’ mapping techniques. Moreover, it is important to have a speci c sound dimension (20Hz-20KHz) to represent a given data dimension. To achieve this, we use parameter mapping soni cation3 and model based soni cation techniques4.  is action, will be repeating on other sound models and synthesis techniques such as additive, Fourier sinusoidal synthesis, fm, granular among others. Additionally, we need to choose an appropriate polarity for the data. For example, if in meteorological data there is an increasing of the temperature we need to increase the frequency and or the volume of the sound and the opposite (positive and negative mapping polarity, Walker, 2002). Considering the di erences between visual and auditory perception it is important not to have as a guide always the visual perception. For more information see here5 Furthermore, a three dimensional visual representation of data is accompanied from an analogous auditory spatial impression. In this case, we are interested in experimenting with spatialisation in both multichannel and stereo representations. To achieve a 3D immersive experience for both soni cation and visualisation purposes we chose to use game engines such as Unreal Engine 4.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org7913cb9" class="outline-2">
+<h2 id="org7913cb9">Sonification of magnetic storm</h2>
+<div class="outline-text-2" id="text-org7913cb9">
+<p>
+Below is an example in <b>SuperCollider</b> and the technique to read and sonify data from <b>NOA's</b> magnetometer. This example also contains code to send <b>osc</b> messages to other applications such as <b>openFrameworks</b> and <b>Cinder</b> for visualisation purposes.
+</p>
+
+<pre class="example">
+// =====================================================================
+// SuperCollider Workspace
+// =====================================================================
+//: Data path
+s.boot;
+(
+~files = "./data/MagneticStorm12-15\ March2016_NOA\'s\ magnetometer/*.dat.txt".pathMatch;
+)
+//:load and collect data
+(
+~load = { | path |
+	var data;
+	// select only these rows which contain 7 columns exactly:
+	data = CSVFileReader.read(path) select: { | row, column |
+		row.size == 7;
+		//column.size == 10;
+	};
+	data.flop[2..4].flop collect: { | row |
+		row collect: { | string |
+			string.replace("+", "").interpret;
+		}
+	};
+};
+)
+//: Synth
+
+(
+SynthDef(\synth01, {|out = 0, gate = 1, amp = 0.1, freq = 440|
+         var env, source;
+         env = EnvGen.kr(Env.adsr, gate, doneAction: 2);
+         source = SinOsc.ar(freq, 0, amp);,
+         Out.ar(out, Pan2.ar(source*env, pan))
+}).add;
+)
+
+//: Routine
+(
+{
+	var data;
+	data = ~load.(~files.first);
+
+	5.wait;
+
+	data do: { | row |
+		//row.postln;
+		//		(dur: 0.1, degree: row[0].abs.cos.postln).play;
+
+		var addr = NetAddr("127.0.0.1", 12345);
+		"TO - SYNTH".postln;
+
+
+		//	row[1] = row[1]+1.0;
+	Synth(\synth01, [\freq, row[0].abs.postln,
+			\amp,
+row[1].abs.tan.postln, \legato, 1]);
+
+		row[0] = row[0]+420;
+		row[1] = row[1]+512;
+		"Data-TO-OF-Fluids".postln;
+		addr.sendMsg("/data", row[1].abs.asFloat.postln, row[0].abs.asFloat.postln
+		);
+
+
+		row[0] = row[0]+800.0;
+		row[1] = row[1]+400.0;
+		row[2] = row[2]+900.0;
+				"Vertex-TO-OF-3D-Model".postln;
+
+		addr.sendMsg("/vertex", row[0].abs.asFloat.postln,
+		row[1].abs.asFloat.postln,
+	row[2].abs.asFloat.neg.postln, 1.0.rand, 1.0.rand, 1.0.rand);
+
+		0.07.wait;//70 miliseconds
+
+		}
+}.fork;
+)
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org155eb27" class="outline-2">
+<h2 id="org155eb27">Listen an example</h2>
+<div class="outline-text-2" id="text-org155eb27">
+<p>
+Listen here a magnetic storm:
+</p>
+
+
+<p>
+<a href="https://youtu.be/FMLO1qVhWio" target="_blank" rel="external">Magnetic storm sonification sample</a>
+</p>
+
+<p>
+Watch also below a live presentation of data sonification at <i>Megaron</i>
+Avarts Festival: AKOYSMATA May 2017
+</p>
+
+<p>
+<a href="https://www.youtube.com/watch?v=0l6I8398E6s" target="_blank" rel="external">Magnetic Storm Sonification</a>
+</p>
+</div>
+</div>
+</div>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/sonification/index.html" data-title="" data-url="https://vasileios.github.io/sonification/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"iTimeTraveler"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+	<link rel="stylesheet" href="/css/comment.css">
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+  
+</article>
+
+<!-- Table of Contents -->
+</section>
+          <aside id="sidebar">
+  
+    <div style="margin: 20px 0;">
+	<div id="search-form-wrap">
+
+    <form class="search-form">
+        <label style="width: 72%;">
+            <span class="screen-reader-text">Search for:</span>
+            <input type="search" class="search-field" style="height: 36px; width: 100%;" placeholder=" Search…" value="" name="s" title="Search for:">
+        </label>
+        <input type="submit" class="search-form-submit" value="Search">
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+</div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Connect With Us</h3>
+    <div class="widget widget_athemes_social_icons">
+
+    	<ul class="clearfix widget-social-icons">   
+    	
+   			<li><a href="https://github.com/iTimeTraveler" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
+
+   		
+   			<li><a href="null" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li> 
+
+   		
+   			<li><a href="null" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> 
+
+   		
+   			<li><a href="null" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> 
+
+   		
+   			<li><a href="null" title="Google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> 
+
+   		
+   			<li><a href="null" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li> 
+
+   		
+   		</ul>
+
+
+   		<!--
+   		<ul class="clearfix widget-social-icons">   		
+   		<li class="widget-si-twitter"><a href="http://twitter.com" title="Twitter"><i class="ico-twitter"></i></a></li> 
+		<li class="widget-si-facebook"><a href="http://facebook.com" title="Facebook"><i class="ico-facebook"></i></a></li>
+			<li class="widget-si-gplus"><a href="http://plus.google.com" title="Google+"><i class="ico-gplus"></i></a></li>
+			<li class="widget-si-pinterest"><a href="http://pinterest.com" title="Pinterest"><i class="ico-pinterest"></i></a></li>
+			<li class="widget-si-flickr"><a href="http://flickr.com" title="Flickr"><i class="ico-flickr"></i></a></li>
+			<li class="widget-si-instagram"><a href="http://instagram.com" title="Instagram"><i class="ico-instagram"></i></a></li>
+		</ul> -->
+
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget_athemes_tabs">
+    <ul id="widget-tab" class="clearfix widget-tab-nav">
+      <li class="active"><a>Recent Posts</a></li>
+    </ul>
+    <div class="widget">
+      <ul>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2017/08/03/arctos/">Arctos</a></h6>
+              <span>August 3, 2017</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2017/06/26/installations/">Installations</a></h6>
+              <span>June 26, 2017</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2017/06/26/sonification/">Sonification</a></h6>
+              <span>June 26, 2017</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2017/06/21/visualisation/">Visualisation</a></h6>
+              <span>June 21, 2017</span>
+            </div>
+
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/raspberry-pi/">raspberry pi</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/raspberry-pi/org-mode/">org-mode</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/raspberry-pi/org-mode/supercollider/">supercollider</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/raspberry-pi/org-mode/supercollider/python/">python</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/raspberry-pi/org-mode/supercollider/python/sensors/">sensors</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/sonification/">sonification</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/sonification/superCollider/">superCollider</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/sonification/superCollider/data/">data</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/sonification/visualisation/">visualisation</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/sonification/visualisation/emacs/">emacs</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/sonification/visualisation/emacs/org-mode/">org-mode</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/sonification/visualisation/emacs/org-mode/supercollider/">supercollider</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/sonification/visualisation/emacs/org-mode/supercollider/python/">python</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/sonification/visualisation/emacs/org-mode/supercollider/python/VR-AR/">VR-AR</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/visualisation/">visualisation</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/visualisation/python/">python</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/visualisation/python/yt/">yt</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/visualisation/python/yt/data/">data</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/VR-AR/">VR-AR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/">data</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/">emacs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/org-mode/">org-mode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/raspberry-pi/">raspberry pi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sonification/">sonification</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/supercollider/">supercollider</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visualisation/">visualisation</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yt/">yt</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/VR-AR/" style="font-size: 10px;">VR-AR</a> <a href="/tags/data/" style="font-size: 15px;">data</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/org-mode/" style="font-size: 15px;">org-mode</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/raspberry-pi/" style="font-size: 10px;">raspberry pi</a> <a href="/tags/sonification/" style="font-size: 15px;">sonification</a> <a href="/tags/supercollider/" style="font-size: 20px;">supercollider</a> <a href="/tags/visualisation/" style="font-size: 15px;">visualisation</a> <a href="/tags/yt/" style="font-size: 10px;">yt</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/workshops-events" class="mobile-nav-link">Workshops-Events</a>
+  
+    <a href="/projects" class="mobile-nav-link">Projects</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2017 BasMyr All Rights Reserved.
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+      var headerblur = document.getElementById("header-blur");
+      headerblur.style.minHeight = window.getComputedStyle(document.getElementById("allheader"), null).height;
+    
+    
+</script>
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+  
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>
