@@ -1,0 +1,30 @@
+ #+TITLE:
+ #+Author: Vasilis Agiomyrgianakis
+ #+LAYOUT: page
+ #+Options: num:nil, toc:nil H:2, html-postamble:nil
+
+
+* Arctos
+
+[[http://localhost:4000/arctos][arctos]]
+
+** Sonification
+
+[[http://localhost:4000/sonification][sonification]]
+
+** Visualisation
+
+[[http://localhost:4000/visualisation][visualisation]]
+
+*** Magnetic Storm
+
+[[http://localhost:4000/magnetic-storm/][magnetic-storm]]
+
+
+* Installations
+
+[[http://localhost:4000/installations][installations]]
+
+* Video art
+
+[[http://localhost:4000/video-art][video-art]]

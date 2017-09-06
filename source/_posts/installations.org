@@ -1,0 +1,221 @@
+ #+TITLE: Installations
+ #+Author: Vasilis Agiomyrgianakis
+ #+Options: num:nil, toc:nil H:2, html-postamble:nil
+ #+DATE: <2017-06-26 Mon 17:31>
+ #+LAYOUT: post
+ #+CATEGORIES: raspberry pi, org-mode, supercollider, python, sensors
+ #+TAGS: supercollider, org-mode, python, raspberry pi
+
+* Weaving voices - Πλεκτόφωνο
+
+VA-210417
+
+* Adafruit MPR121 on Raspberry pi
+
+* Soldering
+
+Prepare the header strip, add the breakout board, and solder
+
+see more [[https://learn.adafruit.com/adafruit-mpr121-12-key-capacitive-touch-sensor-breakout-tutorial/assembly][here]]
+
+After you've soldered the sensor to the header strip start wiring.
+
+* Wiring
+
+* Wiring raspberry pi with MPR121Adafruit*
+
+Place the MPR121 board into a breadboard and connect its inputs to the electrodes you plan to use (for more info see [[https://learn.adafruit.com/adafruit-mpr121-12-key-capacitive-touch-sensor-breakout-tutorial/wiring][here]]).  Then follow the wiring below for your platform to connect the MPR121 to an I2C communication channel.
+Raspberry Pi
+On a Raspberry Pi connect the hardware as follows.
+
+
+[[./installations/Adampr121RPI.jpg]]
+
+For more info see [[https://learn.adafruit.com/mpr121-capacitive-touch-sensor-on-raspberry-pi-and-beaglebone-black/hardware][here]]
+
+*Note*: Make sure you've enabled I2C on your Raspberry Pi!
+
+* Configuring I2C
+
+I2C is a very commonly used standard designed to allow one chip to talk to another. So, since the Raspberry Pi can talk I2C we can connect it to a variety of I2C capable chips and modules.
+Here are some of the Adafruit projects that make use of I2C devices and modules:
+
+https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c
+
+
+*** Testing I2C
+
+Now when you log in you can type the following command to see all the connected devices
+
+#+BEGIN_EXAMPLE
+$ sudo i2cdetect -y 1
+#+END_EXAMPLE
+
+* Install Adafruit MPR121 on Raspberry
+
+First make sure that you've installed python.
+
+#+BEGIN_EXAMPLE
+sudo apt-get update
+sudo apt-get install build-essential python-dev python-smbus python-pip git
+
+#+END_EXAMPLE
+
+Then clone Adafruit_Python_MPR121.git
+
+#+BEGIN_EXAMPLE
+cd ~
+git clone https://github.com/adafruit/Adafruit_Python_MPR121.git
+#+END_EXAMPLE
+
+and install it
+
+#+BEGIN_EXAMPLE
+cd Adafruit_Python_MPR121
+sudo python setup.py install
+
+#+END_EXAMPLE
+
+* Usage
+
+#+BEGIN_EXAMPLE
+cd examples
+sudo python simpletest.py
+#+END_EXAMPLE
+
+These are the output values of 12 capacitive touch inputs in SuperCollider.
+
+- 0 = 1
+- 1 = 2
+- 2 = 4
+- 3 = 8
+- 4 = 16
+- 5 = 32
+- 6 = 64
+- 7 = 128
+- 8 = 256
+- 9 = 512
+- 10 = 1024
+- 11 = 2048
+
+** Set Autostart
+
+- Autostart instructions for RPi
+
+ Set RPi to autostart the scripts in Python and SuperCollider on boot.
+
+Let say that you have created the files:filename.scd (i.e mycode.scd) and filename.py (i.e mpr121.py) and you want to run them on boot. First, you
+need to create 2 files (autostart.sh and pythonlauncher.sh)
+Open terminal and type:
+
+#+BEGIN_EXAMPLE
+
+
+sudo nano ~/autostart.sh #and add the following lines:
+#!/bin/bash
+/usr/local/bin/jackd -P75 -dalsa -dhw:1 -p1024 -n3 -s -r44100 &
+su root -c "sclang -D /home/pi/mycode.scd"
+#+END_EXAMPLE
+
+(I used "mycode.scd", you can use your filename)
+Ctrl-o #to save
+Ctrl-x #to exit
+
+#+BEGIN_EXAMPLE
+sudo nano pythonlauncher.sh
+#+END_EXAMPLE
+
+and add the following lines:
+
+#+BEGIN_EXAMPLE
+#!/bin/sh
+pythonlauncher.sh
+cd /
+cd home/pi
+sudo python mpr121.py
+cd /
+#+END_EXAMPLE
+
+ We need to make these 2 files executable:
+
+#+BEGIN_EXAMPLE
+chmod +x !/autostart.sh
+chmod 755 pytholauncher.sh
+#+END_EXAMPLE
+
+Next step is to tell the machine to run these files at reboot:
+=sudo crontab -e=
+paste the following lines:
+
+#+BEGIN_EXAMPLE
+ @reboot /bin/bash /home/pi/autostart.sh
+ @reboot /bin/sh /home/pi/pythonlauncher.sh
+#+END_EXAMPLE
+
+Ctrl-o #to save
+
+Ctrl-x #to exit
+
+reboot
+
+
+* Mind the fact Festival
+
+26 Μαΐου 2017
+18.00-22.00
+
+
+27 Μαΐου 2017
+18.00-22.00
+
+
+28 Μαΐου 2017
+18.00-22.00
+
+
+29 Μαΐου 2017
+18.00-22.00
+
+*Σύλλογος Ελλήνων Αρχαιολόγων*
+
+Χορδή και ιστορία!
+Ένα ιδιαίτερο μουσικό ηχοτοπίο με φωνές των ανθρώπων της πόλης. Ιστορίες που υφαίνονται - κάθε φορά με διαφορετική σειρά - δημιουργούν αφηγηματικές συνθέσεις που μας μεταφέρουν σε διαφορετικές γειτονιές και παρουσιάζουν διαφορετικές προσωπογραφίες.
+Μέσω της διαδραστικής εγκατάστασης, οι επισκέπτες καλούνται να αγγίξουν τις κλωστές, ώστε να ακουστούν αποσπάσματα από μαρτυρίες ατόμων προερχομένων από ομάδες αστέγων, προσφύγων και πρώην εξαρτημένων από τυχερά παιχνίδια.
+
+Οι ηχογραφήσεις έγιναν στο πλαίσιο των εργαστηρίων του mind the fact.
+
+Συντελεστές:
+Ιδέα - συντονισμός: Γιάννης Ζάννος
+
+Προγραμματισμός - ηχητικός σχεδιασμός: Βασίλης Αγιομυργιανάκης, Χρήστος Πούλιας
+
+Εικαστικός σχεδιασμός - υλοποίηση: Μάγδα Πλευράκη, Μάντυ Αλμπάνη, Λάουρα Κόντη, Αναστασία Τριανταφυλλίδου
+
+** Photos
+
+
+
+
+#+Caption: Weaving voices - 01
+
+[[./installations/IMG_0348.jpg]]
+
+
+#+Caption: Weaving voices - 01
+
+[[./installations/IMG_0349.JPG]]
+
+
+#+Caption: Weaving voices - 01
+
+[[./installations/IMG_0350.JPG]]
+
+
+#+Caption: Weaving voices - 01
+
+[[./installations/IMG_0351.JPG]]
+
+
+#+Caption: Weaving voices - 01
+
+[[./installations/IMG_0352.jpg]]

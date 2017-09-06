@@ -1,0 +1,153 @@
+ #+TITLE: Sonification
+ #+Author: Vasilis Agiomyrgianakis
+ #+Options: num:nil, toc:nil H:2, html-postamble:nil
+ #+DATE: <2017-06-26 Mon 17:31>
+ #+LAYOUT: post
+ #+CATEGORIES: sonification, superCollider, data
+ #+TAGS: sonification, supercollider, data
+
+
+* Sonification case study
+
+
+Sonifcation of scientific  data has progressed over the last 2 decades. This attempts to change our aural perception and train our ears and brain in a way to understand the information of specific events or phenomena and make a better understanding of the complexity of scientific data. Especially in large data exploration which contains much more information than this we can display visually. ”the auditory system is the best pattern-recognition device that we know of,” says Bruce Walker, a professor of psychology and director of the Georgia Institute of Technology’s Sonification Lab. ”If you’re looking through a data set and trying to understand what’s going on, it’s o en easier and more eficient to listen to the sound of it rather than looking at a screen or a printed version.”1 Diaz Merced, and Wanda Liz (2013) indicate in their thesis with the title ”Sound for the exploration of space physics data” that:
+large data sets have a large amount of information spanning dozens of orders of magnitude in space and time. It is also important to consider the limitations improved by nature on the human eye. In addition, even the best computer screens available are limited to a range of spatial resolution.  is limitation a ects the useful dynamic range of the display, reducing the amount of data scientists can study at any one time.(Merced, Wanda, 2013. p.7)
+
+
+* Auditory dimension
+
+- What data and how to map.(Gaël Dubus* and Roberto Bresin 2013)
+- the use of mappings and metaphors in auditory displays.(Walker, Kramer 1996 )
+- transform inaudible data into audible information
+- 3D interactive sound
+
+* State of the art
+Arthur Paté Lapo Boschi, Jean-Loïc Le Carrou,Benjamin Holtzman. Categorization of seismic sources by auditory display: A blind test.International Journal of Human-Computer Studies. 2016
+Michele Geronazzo Alberto Bedin, Luca Brayda Claudio Campus Federico Avanzini. Interactive spatial soni cation for non-visual exploration of virtual maps. International Journal of Human-Computer Studies. 2016 (http://www.sciencedirect.com/science/article/pii/ S1071581915001287)
+Sergio Masce i, Lorenzo Picinali, Andrea Gerino, Dragan Ahmetovic, Cristian Bernareggi .Soni cation of guidance data during road crossing for people with visual impairments or blindness. International Journal of Human-Computer Studies. 2016
+Sandra Paule o,(Guest Editor), Howard Cambridge, (Guest Editor), Patrick Susini. Data soni cation and sound design in interactive systems. International Journal of Human-Computer Studies. 2016
+* Other Sonifcation examples
+
+From: http://www.open-shelf.ca/ 160201-data-sonification/
+LARAS Sonifcation Laboratory’s projects that allow network administrators to monitor network activity by listening to soni cations.
+Sonifcation has also been used for real-time monitoring of athletes’ physical performance. Various sensors collect information about athletes’ motions, posture, and force, then that information is sonified so athlete’s can listen to their performance in real-time. For example, Stephan Barrass described a workshop he led about using sonification for elite rowing training. Athletes using these sort of applications can listen to feedback about their performance without needing to compromising their visual focus.
+ e LHC Sound project: LHC (Large Hardon Collider) Sound so ware engineer Archer Enrich said the sonification is “true to the data, and it’s telling you something about the data that you couldn’t know in any other way.” He also noted that when listening to the sonification, “you feel closer to the mystery of Nature which I think a lot of scientists do when they get deep into these ma ers.”
+Brian Foo’s sonification of income inequality in New York City provides an example ”the sonification is entertaining simply as a piece of music and manages to powerful information about income inequality in a few short minutes.”
+Wanda Diaz Merced describes how losing her sight led her to investigate new ways of studying space physics, using sound rather than visual information.(https://www.nasa.gov/centers/goddard/about/people/Wanda_Diaz-Merced.html)
+Heavenly Sounds: Hearing Astronomical Data Can Lead to Scientific
+Insights Converting the energetic hail of cosmic radiation into audible
+tracks has produced be er understanding of the solar wind and other
+astrophysical events—along with musical enjoyment: COSMIC SYMPHONICS:
+ e ”solar wind,” a barrage of charged particles streaming from the sun
+(red arrows; yellow represents magnetic  eld lines), is one example of an
+astrophysical phenomenon that can be translated into audible sound. Credit:
+ESA/NASA https://www.scientificamerican.com/article/heavenly-sounds-hearing-astronomical-data-can-lead-to-scientific-Listening to Solar Storms | MconneX | MichEpedia: https://www.youtube.com/watch?v=S-saaAyaW0c&feature=youtu.be
+Sounds of Saturn - NASA Voyager Recording: https://www.youtube.com/watch?v=X_JAvVjKeWI
+
+* Sonifcation Techniques and approaches
+ Data exploration
+ the first thing we need to consider is to explore-investigate and  nally choose the data which can be used both for scienti c and artistic purposes.
+
+Additionally, the base of soni cation visualisation will be some combination of passive listening and active listener interaction.
+Our plan is to use iPython tools and /CSV File Readers/2 to import data, then through OSC we will send the data to other programming languages such as SuperCollider. In SuperCollider we will use ’Pa ern style’ mapping techniques. Moreover, it is important to have a speci c sound dimension (20Hz-20KHz) to represent a given data dimension. To achieve this, we use parameter mapping soni cation3 and model based soni cation techniques4.  is action, will be repeating on other sound models and synthesis techniques such as additive, Fourier sinusoidal synthesis, fm, granular among others. Additionally, we need to choose an appropriate polarity for the data. For example, if in meteorological data there is an increasing of the temperature we need to increase the frequency and or the volume of the sound and the opposite (positive and negative mapping polarity, Walker, 2002). Considering the di erences between visual and auditory perception it is important not to have as a guide always the visual perception. For more information see here5 Furthermore, a three dimensional visual representation of data is accompanied from an analogous auditory spatial impression. In this case, we are interested in experimenting with spatialisation in both multichannel and stereo representations. To achieve a 3D immersive experience for both soni cation and visualisation purposes we chose to use game engines such as Unreal Engine 4.
+
+
+* Sonification of magnetic storm
+
+Below is an demonstration of the technique in *SuperCollider*. With this technique we are able to read and sonify data from *NOA's* magnetometer. This example also contains the code for sending *osc* messages to other applications such as *openFrameworks* and *Cinder* for visualisation purposes.
+
+#+BEGIN_EXAMPLE
+// =====================================================================
+// SuperCollider Workspace
+// =====================================================================
+//: Data path
+s.boot;
+(
+~files = "./data/MagneticStorm12-15\ March2016_NOA\'s\ magnetometer/*.dat.txt".pathMatch;
+)
+//:load and collect data
+(
+~load = { | path |
+	var data;
+	// select only these rows which contain 7 columns exactly:
+	data = CSVFileReader.read(path) select: { | row, column |
+		row.size == 7;
+		//column.size == 10;
+	};
+	data.flop[2..4].flop collect: { | row |
+		row collect: { | string |
+			string.replace("+", "").interpret;
+		}
+	};
+};
+)
+//: Synth
+
+(
+SynthDef(\synth01, {|out = 0, gate = 1, amp = 0.1, freq = 440|
+         var env, source;
+         env = EnvGen.kr(Env.adsr, gate, doneAction: 2);
+         source = SinOsc.ar(freq, 0, amp);,
+         Out.ar(out, Pan2.ar(source*env, pan))
+}).add;
+)
+
+//: Routine
+(
+{
+	var data;
+	data = ~load.(~files.first);
+
+	5.wait;
+
+	data do: { | row |
+		//row.postln;
+		//		(dur: 0.1, degree: row[0].abs.cos.postln).play;
+
+		var addr = NetAddr("127.0.0.1", 12345);
+		"TO - SYNTH".postln;
+
+
+		//	row[1] = row[1]+1.0;
+	Synth(\synth01, [\freq, row[0].abs.postln,
+			\amp,
+row[1].abs.tan.postln, \legato, 1]);
+
+		row[0] = row[0]+420;
+		row[1] = row[1]+512;
+		"Data-TO-OF-Fluids".postln;
+		addr.sendMsg("/data", row[1].abs.asFloat.postln, row[0].abs.asFloat.postln
+		);
+
+
+		row[0] = row[0]+800.0;
+		row[1] = row[1]+400.0;
+		row[2] = row[2]+900.0;
+				"Vertex-TO-OF-3D-Model".postln;
+
+		addr.sendMsg("/vertex", row[0].abs.asFloat.postln,
+		row[1].abs.asFloat.postln,
+	row[2].abs.asFloat.neg.postln, 1.0.rand, 1.0.rand, 1.0.rand);
+
+		0.07.wait;//70 miliseconds
+
+		}
+}.fork;
+)
+
+#+END_EXAMPLE
+
+* Listening to data
+
+Listen here a magnetic storm:
+
+
+[[https://youtu.be/FMLO1qVhWio][Magnetic storm sonification sample]]
+
+*Real-time sonification*
+
+[[https://www.youtube.com/watch?v%3D0l6I8398E6s][Magnetic Storm Sonification]]
+
+"Magnetic Storm Sonification - Live at Megaron: Banqueting Hall - 11th Audiovisual Arts Festival May 21/17 - AKOYSMATA.
+Data: NOA's ENIGMA.
+See more about Storm Trio here: http://users.ionio.gr/~amlists/akousm..."

@@ -1,0 +1,17 @@
+#+Title: video-art, interactive environments
+#+Author: Vasilis Agiomyrgianakis
+#+Options: num:nil, toc:nil, html-postamble:nil
+#+Categories: video-art, interactive environments
+#+Tags: video-art, avant-garde
+#+Layout: page
+
+* Video-art
+
+*** 2012, AudioVisual Haiku No.1: 05:21,
+
+
+
+*** 2013, AudioVisual Haiku No.2: 07:21 ,
+*** 2013, AudioVisual Haiku No.3: 05:21,
+*** 2014, AudioVisual Epic Poetry - Nekyia: 11:21,
+*** 2015, Aranea (videogame): indeterminate.

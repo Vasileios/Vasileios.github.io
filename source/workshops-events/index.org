@@ -1,0 +1,6 @@
+ #+TITLE: workshops - events
+ #+Author: Vasilis Agiomyrgianakis
+ #+LAYOUT: page
+ #+Options: num:nil, toc:nil H:2, html-postamble:nil
+
+* No upcoming workshops or events at the moment

@@ -1,0 +1,26 @@
+ #+TITLE: categories
+ #+Author: Vasilis Agiomyrgianakis
+ #+LAYOUT: page
+ #+Options: num:nil, toc:nil H:2, html-postamble:nil
+
+- org-mode
+
+- sonification
+
+- supercollider
+
+- visualisation
+
+- python
+
+- yt
+
+- raspberry pi
+
+- data
+
+- sensors
+
+- arctos
+
+- video-art
